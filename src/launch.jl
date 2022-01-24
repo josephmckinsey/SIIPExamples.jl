@@ -148,7 +148,7 @@ function notebook(example::Type{<:Examples}, notebook_target_dir = nothing)
         execute = false,
         test = false,
         notebook_target_dir = notebook_target_dir,
-        preprocess = in_pkg_path ? nothing : set_env,
+        preprocess = in_pkg_path ? identity : set_env,
     )
     IJulia.notebook(dir = joinpath(notebook_target_dir, get_dir(example)))
 end
